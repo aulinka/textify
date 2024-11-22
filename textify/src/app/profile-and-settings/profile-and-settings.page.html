@@ -1,0 +1,57 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button default-href="/dashboard"></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+  <ion-grid>
+    <ion-row class="ion-justify-content-center ion-align-items-center" style="height: 30%; margin-bottom: 60px; margin-top: 60px">
+      <img ngSrc="assets/profile.png" alt="profile" height="100" width="100" priority>
+    </ion-row>
+    <div class="profile-informations" style="height: 30%; margin-left: 20px; margin-right: 20px; padding-top: 20px" >
+      <p>Information about user</p>
+      <table>
+        <tr>
+          <td class="profile-table-feature">
+            Last login:
+          </td>
+          <td>
+            12.3.23
+          </td>
+        </tr>
+        <tr>
+          <td class="profile-table-feature">
+            Number of bookmarks:
+          </td>
+          <td>
+            1
+          </td>
+        </tr>
+        <tr>
+          <td class="profile-table-feature">
+            Preferred language:
+          </td>
+          <td>
+            English
+          </td>
+        <td></td>
+      </table>
+    </div>
+    <div class="profile-ocr-settings">
+      <p>Language preferences for OCR</p>
+      <ion-row style="padding-bottom: 30px">
+        <ion-toggle>English</ion-toggle>
+      </ion-row>
+      <ion-row>
+        <ion-toggle [checked]="true">Slovak</ion-toggle><br /><br />
+      </ion-row>
+    </div>
+
+  </ion-grid>
+<!--  <div class="settings">-->
+<!--    <ion-toggle>Default Toggle</ion-toggle><br /><br />-->
+<!--    <ion-toggle [checked]="true">Checked Toggle</ion-toggle><br /><br />-->
+<!--  </div>-->
+</ion-content>
