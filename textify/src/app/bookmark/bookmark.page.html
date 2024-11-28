@@ -1,0 +1,73 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button default-href="/dashboard"></ion-back-button>
+    </ion-buttons>
+    <ion-button fill="outline" id="bookmark-delete" shape="round" slot="end" style="margin-right: 16px">
+      <ion-icon slot="icon-only" name="close-outline"></ion-icon>
+    </ion-button>
+    <ion-alert class="custom-alert" trigger="bookmark-delete"
+               header="Are you sure you want to delete this bookmark?"
+               [buttons]="alertButtons">
+    </ion-alert>
+  </ion-toolbar>
+</ion-header>
+<ion-content [fullscreen]="true">
+  <ion-grid>
+    <ion-row>
+      <ion-col class="bookmark-info-header">
+        <ion-label>Bookmark content</ion-label>
+        <ion-button fill="outline" [routerLink]="['/bookmark-edit-ocr', id]" shape="round">
+          <ion-icon slot="icon-only" name="create-outline"></ion-icon>
+        </ion-button>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        <ion-item lines="none">
+          <ion-label>{{ bookmarkContent }}</ion-label>
+        </ion-item>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+  <ion-grid>
+    <ion-row>
+      <ion-col class="bookmark-info-header">
+        <ion-label>Bookmark details</ion-label>
+        <ion-button fill="outline" [routerLink]="['/bookmark-edit-detail', id]" shape="round">
+          <ion-icon slot="icon-only" name="create-outline"></ion-icon>
+        </ion-button>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        <ion-item-divider>
+          <ion-label>Book</ion-label>
+        </ion-item-divider>
+        <ion-item lines="none">
+          <ion-label>{{ bookName }}</ion-label>
+        </ion-item>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        <ion-item-divider>
+          <ion-label>Page number</ion-label>
+        </ion-item-divider>
+        <ion-item lines="none">
+          <ion-label>{{ bookmark?.pageNumber ?? '-' }}</ion-label>
+        </ion-item>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        <ion-item-divider>
+          <ion-label>Note</ion-label>
+        </ion-item-divider>
+        <ion-item lines="none">
+          <ion-label>{{ bookmark?.note ?? '-' }}</ion-label>
+        </ion-item>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

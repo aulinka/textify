@@ -7,51 +7,37 @@
 </ion-header>
 <ion-content>
   <ion-grid>
-    <ion-row class="ion-justify-content-center ion-align-items-center" style="height: 30%; margin-bottom: 60px; margin-top: 60px">
-      <img ngSrc="assets/profile.png" alt="profile" height="100" width="100" priority>
-    </ion-row>
-    <div class="profile-informations" style="height: 30%; margin-left: 20px; margin-right: 20px; padding-top: 20px" >
-      <p>Information about user</p>
-      <table>
-        <tr>
-          <td class="profile-table-feature">
-            Last login:
-          </td>
-          <td>
-            12.3.23
-          </td>
-        </tr>
-        <tr>
-          <td class="profile-table-feature">
-            Number of bookmarks:
-          </td>
-          <td>
-            1
-          </td>
-        </tr>
-        <tr>
-          <td class="profile-table-feature">
-            Preferred language:
-          </td>
-          <td>
-            English
-          </td>
-        <td></td>
-      </table>
-    </div>
-    <div class="profile-ocr-settings">
-      <p>Language preferences for OCR</p>
-      <ion-row style="padding-bottom: 30px">
-        <ion-toggle>English</ion-toggle>
-      </ion-row>
-      <ion-row>
-        <ion-toggle [checked]="true">Slovak</ion-toggle><br /><br />
-      </ion-row>
-    </div>
-
+    <ion-list class="user-profile-information" lines="none">
+      <ion-item-divider>
+        <ion-label>Information about user</ion-label>
+      </ion-item-divider>
+      <ion-item-group>
+        <ion-item>
+          <ion-label>Last login</ion-label>
+          <ion-label slot="end">12.3.2024</ion-label>
+        </ion-item>
+        <ion-item>
+          <ion-label>Bookmarks count</ion-label>
+          <ion-label slot="end">9</ion-label>
+        </ion-item>
+        <ion-item>
+          <ion-label>Preferred OCR language</ion-label>
+          <ion-label slot="end">English</ion-label>
+        </ion-item>
+      </ion-item-group>
+    </ion-list>
   </ion-grid>
-<!--  <div class="settings">-->
-<!--    <ion-toggle>Default Toggle</ion-toggle><br /><br />-->
-<!--    <ion-toggle [checked]="true">Checked Toggle</ion-toggle><br /><br />-->
-<!--  </div>-->
+  <ion-grid>
+    <ion-list lines="none" class="user-profile-information">
+      <ion-item-divider>
+        <ion-label>Language preference for OCR</ion-label>
+      </ion-item-divider>
+      <ion-item>
+        <ion-toggle>Slovak</ion-toggle>
+      </ion-item>
+      <ion-item>
+        <ion-toggle [checked]="true">English</ion-toggle>
+      </ion-item>
+    </ion-list>
+  </ion-grid>
 </ion-content>

@@ -1,0 +1,12 @@
+.login {
+  height: 70%;
+  margin-top: 70px
+}
+
+code-input {
+  --item-spacing: 8px;
+  --item-height: 50px;
+  --item-border-radius: 5px;
+  --item-border: 2px solid var(--ion-color-secondary);
+  --item-border-focused: 2px solid #007aff;
+}

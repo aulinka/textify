@@ -1,0 +1,50 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-button fill="outline" [routerLink]="['/bookmark', id]" id="open-loading" shape="round" slot="end" style="margin-right: 16px">
+      <ion-icon slot="icon-only" name="checkmark-outline"></ion-icon>
+    </ion-button>
+    <ion-loading trigger="open-loading" message="Saving..." duration="1000" spinner="circles"></ion-loading>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+  <ion-grid>
+    <ion-row>
+      <ion-col class="bookmark-info-header">
+        <ion-label>Bookmark Details</ion-label>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        <ion-item-divider>
+          <ion-label>Book</ion-label>
+        </ion-item-divider>
+        <ion-item lines="none">
+          <ion-textarea auto-grow="true" value="{{ bookName }}"></ion-textarea>
+        </ion-item>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        <ion-item-divider>
+          <ion-label>Page number</ion-label>
+        </ion-item-divider>
+        <ion-item lines="none">
+          <ion-textarea auto-grow="true" value="{{ bookmark?.pageNumber ?? '-' }}"></ion-textarea>
+        </ion-item>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        <ion-item-divider>
+          <ion-label>Note</ion-label>
+        </ion-item-divider>
+        <ion-item lines="none">
+          <ion-textarea auto-grow="true" value="{{ bookmark?.note ?? '-' }}"></ion-textarea>
+        </ion-item>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

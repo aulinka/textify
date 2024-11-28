@@ -35,3 +35,41 @@
 /* @import "@ionic/angular/css/palettes/dark.always.css"; */
 /* @import "@ionic/angular/css/palettes/dark.class.css"; */
 //@import '@ionic/angular/css/palettes/dark.system.css';
+
+ion-loading.custom-loading {
+  --background: var(--ion-color-primary-contrast);
+  --spinner-color: var(--ion-color-secondary);
+}
+ion-header {
+  ion-button {
+    margin-right: 15px;
+  }
+}
+ion-grid {
+  margin-top: 20px;
+}
+ion-button {
+  --border-width: 1px;
+}
+
+ion-item-divider {
+  --color: var(--ion-color-medium);
+  --padding-top: 10px;
+  --padding-bottom: 10px;
+  --padding-start: 20px;
+  --padding-end: 20px;
+}
+
+.bookmark-info-header {
+  height: 60px;
+  border: 1px solid var(--ion-color-secondary);
+  border-radius: 20px;
+  background: var(--ion-color-secondary);
+  box-shadow:0 4px 2px -2px var(--ion-color-tertiary);
+  padding: 5px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+

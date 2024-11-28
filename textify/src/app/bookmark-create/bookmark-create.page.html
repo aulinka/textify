@@ -1,0 +1,64 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-button fill="outline" id="open-loading" [routerLink]="['/dashboard']" shape="round" slot="end">
+      <ion-icon slot="icon-only" name="checkmark-outline"></ion-icon>
+    </ion-button>
+    <ion-loading trigger="open-loading" message="Saving..." duration="1000" spinner="circles"></ion-loading>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-grid>
+    <ion-row>
+      <ion-col class="bookmark-info-header">
+        <ion-label>Bookmark Content</ion-label>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        <ion-item lines="none">
+          <ion-label>{{ bookmarkContent }}</ion-label>
+        </ion-item>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col class="bookmark-info-header">
+        <ion-label>Bookmark details</ion-label>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        <ion-item-divider>
+          <ion-label>Book</ion-label>
+        </ion-item-divider>
+        <ion-item lines="none">
+          <ion-textarea [autoGrow]="true"></ion-textarea>
+        </ion-item>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        <ion-item-divider>
+          <ion-label>Page number</ion-label>
+        </ion-item-divider>
+        <ion-item lines="none">
+          <ion-textarea [autoGrow]="true"></ion-textarea>
+        </ion-item>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        <ion-item-divider>
+          <ion-label>Note</ion-label>
+        </ion-item-divider>
+        <ion-item lines="none">
+          <ion-textarea [autoGrow]="true"></ion-textarea>
+        </ion-item>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>
+

@@ -5,12 +5,11 @@ import {
   IonBackButton,
   IonButtons, IonCol,
   IonContent, IonGrid,
-  IonHeader, IonIcon,
+  IonHeader, IonIcon, IonItem, IonItemDivider, IonItemGroup, IonLabel, IonList, IonListHeader,
   IonNav, IonRow,
   IonTitle, IonToggle,
   IonToolbar
 } from '@ionic/angular/standalone';
-import {DashboardPage} from "../dashboard/dashboard.page";
 import {addIcons} from "ionicons";
 import {person} from "ionicons/icons";
 
@@ -19,7 +18,7 @@ import {person} from "ionicons/icons";
   templateUrl: './profile-and-settings.page.html',
   styleUrls: ['./profile-and-settings.page.scss'],
   standalone: true,
-  imports: [IonContent, IonHeader, IonTitle, IonToolbar, CommonModule, FormsModule, IonNav, IonButtons, IonBackButton, IonToggle, IonIcon, IonGrid, IonRow, NgOptimizedImage, IonCol]
+  imports: [IonContent, IonHeader, IonTitle, IonToolbar, CommonModule, FormsModule, IonNav, IonButtons, IonBackButton, IonToggle, IonIcon, IonGrid, IonRow, NgOptimizedImage, IonCol, IonList, IonItem, IonLabel, IonListHeader, IonItemGroup, IonItemDivider]
 })
 export class ProfileAndSettingsPage implements OnInit {
 
@@ -30,6 +29,4 @@ export class ProfileAndSettingsPage implements OnInit {
   }
 
   ngOnInit() {}
-
-
 }

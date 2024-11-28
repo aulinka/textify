@@ -1,0 +1,19 @@
+<ion-content>
+
+  <ion-row class="ion-justify-content-center ion-align-items-center login">
+    <ion-col>
+      <code-input
+        [isCodeHidden]="true"
+        [codeLength]="6"
+        (codeChanged)="onCodeChanged($event)"
+        (codeCompleted)="onCodeCompleted($event)">
+      </code-input>
+    </ion-col>
+  </ion-row>
+  <ion-row class="ion-justify-content-center ion-align-items-center">
+    <ion-button shape="round" [routerLink]="['/dashboard']" size="large">
+      <ion-icon slot="icon-only" name="arrow-forward-outline"></ion-icon>
+    </ion-button>
+  </ion-row>
+</ion-content>
+

@@ -1,0 +1,47 @@
+<ion-content [fullscreen]="true">
+  <swiper-container [slidesPerView]="1"
+                    [spaceBetween]="10"
+                    pagination="true"
+                    class="mySwiper">
+    <swiper-slide>
+      <div class="img">
+        <ion-img src="../assets/onboarding/login.png"></ion-img>
+      </div>
+      <div class="description">
+        You can login in using 6-digit pin.
+      </div>
+    </swiper-slide>
+    <swiper-slide>
+      <div class="img">
+        <ion-img src="../assets/onboarding/dashboard.png"></ion-img>
+      </div>
+      <div class="description">
+        On bookmark dashboard you can see all of your previously added bookmarks.
+        If you would like to add new, you can do so using the right down button.
+      </div>
+    </swiper-slide>
+    <swiper-slide>
+      <div class="img">
+        <ion-img src="../assets/onboarding/bookmark.png"></ion-img>
+      </div>
+      <div class="description">
+        After clicking on one of your existing bookmarks, you can see details about it.
+        Editing and deleting is possible using the representative button in each section.
+      </div>
+    </swiper-slide>
+    <swiper-slide>
+      <div class="img-last">
+        <ion-img src="../assets/onboarding/profile_and_settings.png"></ion-img>
+      </div>
+      <div class="description">
+        In profile and settings you can see some of the stats of your bookmarks and also set the default language for
+        OCR functionality.
+      </div>
+      <ion-row class="ion-justify-content-center ion-align-items-center">
+        <ion-button shape="round" [routerLink]="['/login']" size="large">
+          <ion-icon slot="icon-only" name="arrow-forward-outline"></ion-icon>
+        </ion-button>
+      </ion-row>
+    </swiper-slide>
+  </swiper-container>
+</ion-content>
