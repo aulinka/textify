@@ -3,6 +3,7 @@
   <ion-row class="ion-justify-content-center ion-align-items-center login">
     <ion-col>
       <code-input
+        #codeInput
         [isCodeHidden]="true"
         [codeLength]="6"
         (codeChanged)="onCodeChanged($event)"
@@ -11,9 +12,12 @@
     </ion-col>
   </ion-row>
   <ion-row class="ion-justify-content-center ion-align-items-center">
-    <ion-button shape="round" [routerLink]="['/dashboard']" size="large">
-      <ion-icon slot="icon-only" name="arrow-forward-outline"></ion-icon>
-    </ion-button>
+      <ion-note>Please enter 6 digit pin which will be saved</ion-note>
+  </ion-row>
+  <ion-row class="ion-justify-content-center ion-align-items-center">
+<!--    <ion-button shape="round" size="large">-->
+<!--      <ion-icon slot="icon-only" name="arrow-forward-outline"></ion-icon>-->
+<!--    </ion-button>-->
   </ion-row>
 </ion-content>
 

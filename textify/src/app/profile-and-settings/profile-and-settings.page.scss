@@ -1,7 +1,12 @@
 .user-profile-information{
   border: var(--ion-color-tertiary) solid 1px;
   border-radius: 15px;
-  box-shadow: 0 4px 2px -2px var(--ion-color-secondary-tint);
+  box-shadow: 0 3px 2px -2px var(--ion-color-medium);
+  margin-bottom: 20px;
+
+  ion-header{
+    background: var(--ion-color-tertiary)
+  }
 }
 
 .user-profile-information-table {
@@ -13,7 +18,3 @@
 .user-profile-information-table td:last-child {
   text-align: right;
 }
-
-
-
-

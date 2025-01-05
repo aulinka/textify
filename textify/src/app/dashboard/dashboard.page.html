@@ -1,6 +1,6 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
-    <ion-button fill="outline" [routerLink]="['/profile-and-settings']" shape="round" slot="end">
+    <ion-button size="large" fill="clear" [routerLink]="['/profile-and-settings']" shape="round" slot="end">
       <ion-icon slot="icon-only" name="person-outline"></ion-icon>
     </ion-button>
   </ion-toolbar>
@@ -12,7 +12,15 @@
         <ion-card [routerLink]="card.routerLink">
           <ion-card-header>
             <ion-card-title>{{ card.title }}</ion-card-title>
-            <ion-card-subtitle>{{ card.subtitle}}</ion-card-subtitle>
+            <ion-note style="margin-top: 3px">
+<!--              {{ author}}-->
+              Jozko Mak
+            </ion-note>
+            <ion-card-subtitle>
+              <ion-badge color="light" style="margin-right: 10px">
+                {{ card.subtitle}}
+              </ion-badge>
+            </ion-card-subtitle>
           </ion-card-header>
           <ion-card-content>
             {{ card.content }}

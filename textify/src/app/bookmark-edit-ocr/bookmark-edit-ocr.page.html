@@ -3,8 +3,8 @@
     <ion-buttons slot="start">
       <ion-back-button></ion-back-button>
     </ion-buttons>
-    <ion-button fill="outline" [routerLink]="['/bookmark', id]" id="open-loading" shape="round" slot="end">
-      <ion-icon slot="icon-only" name="checkmark-outline"></ion-icon>
+    <ion-button fill="clear" id="open-loading" shape="round" slot="end" (click)="updateBookmark()">
+      <ion-icon size="large" slot="icon-only" name="checkmark-outline"></ion-icon>
     </ion-button>
     <ion-loading trigger="open-loading" message="Saving..." duration="1000" spinner="circles"></ion-loading>
   </ion-toolbar>
@@ -19,7 +19,7 @@
     <ion-row>
       <ion-col>
         <ion-item lines="none">
-          <ion-textarea auto-grow="true" value="{{ bookmarkContent }}"></ion-textarea>
+          <ion-textarea auto-grow="true" [(ngModel)]="bookmarkContent"></ion-textarea>
         </ion-item>
       </ion-col>
     </ion-row>

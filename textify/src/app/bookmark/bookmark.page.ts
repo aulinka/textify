@@ -3,7 +3,7 @@ import {CommonModule} from '@angular/common';
 import {FormsModule} from '@angular/forms';
 import {
   IonAlert,
-  IonBackButton,
+  IonBackButton, IonBadge,
   IonButton,
   IonButtons, IonCheckbox, IonCol,
   IonContent, IonFab, IonFabButton, IonGrid,
@@ -12,20 +12,23 @@ import {
   IonToolbar
 } from '@ionic/angular/standalone';
 import {addIcons} from "ionicons";
-import {createOutline, heart, closeOutline} from "ionicons/icons";
+import {createOutline, heart, closeOutline, bookmark, book} from "ionicons/icons";
 import {ActivatedRoute, Router, RouterLink} from "@angular/router";
-import {Bookmark, bookmarks} from "../bookmark";
-import {books} from "../book";
+import {SQLiteService} from "../services/SqliteService";
+import {Bookmark} from "../models/Bookmark";
 
 @Component({
   selector: 'app-bookmark',
   templateUrl: './bookmark.page.html',
   styleUrls: ['./bookmark.page.scss'],
   standalone: true,
-  imports: [IonContent, IonHeader, IonTitle, IonToolbar, CommonModule, FormsModule, IonBackButton, IonButtons, IonButton, IonIcon, IonGrid, IonRow, IonItemGroup, IonItem, IonLabel, IonCol, IonFab, IonFabButton, IonItemDivider, RouterLink, IonAlert, IonSegment, IonSegmentButton, IonCheckbox]
+  imports: [IonContent, IonHeader, IonTitle, IonToolbar, CommonModule, FormsModule, IonBackButton, IonButtons, IonButton, IonIcon, IonGrid, IonRow, IonItemGroup, IonItem, IonLabel, IonCol, IonFab, IonFabButton, IonItemDivider, RouterLink, IonAlert, IonSegment, IonSegmentButton, IonCheckbox, IonBadge]
 })
 export class BookmarkPage {
-  constructor(private activatedRoute: ActivatedRoute, private router: Router) {
+
+  bookmark: Bookmark | null | undefined;
+
+  constructor(private activatedRoute: ActivatedRoute, private router: Router, private database: SQLiteService) {
     addIcons({
       heart,
       closeOutline,
@@ -33,20 +36,18 @@ export class BookmarkPage {
     })
   }
 
-  bookmarkContent = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. " +
-    " Integer et sapien nec ex faucibus hendrerit. Cras semper" +
-    " tellus mollis mattis accumsan. Nulla dignissim finibus blandit. " +
-    " Aliquam ac finibus justo."
-
-  protected bookmark: Bookmark | null = null;
-  protected bookName: String | null = null;
-  protected id: number | null = null;
-
-  ngOnInit() {
+  async ionViewWillEnter() {
     const id = parseInt(<string>this.activatedRoute.snapshot.paramMap.get('id'))
-    this.id = id
-    this.bookmark = bookmarks[id];
-    this.bookName = books[this.bookmark.bookId];
+    this.bookmark = await this.database.getBookmarkById(id)
+  }
+
+  async ngOnInit() {
+    const id = parseInt(<string>this.activatedRoute.snapshot.paramMap.get('id'))
+    this.bookmark = await this.database.getBookmarkById(id)
+  }
+
+  async deleteBookmark(id: number) {
+    await this.database.deleteBookmarkById(id)
   }
 
   public alertButtons = [
@@ -62,5 +63,4 @@ export class BookmarkPage {
       }
     },
   ];
-
 }

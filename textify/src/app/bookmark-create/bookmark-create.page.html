@@ -3,10 +3,13 @@
     <ion-buttons slot="start">
       <ion-back-button></ion-back-button>
     </ion-buttons>
-    <ion-button fill="outline" id="open-loading" [routerLink]="['/dashboard']" shape="round" slot="end">
-      <ion-icon slot="icon-only" name="checkmark-outline"></ion-icon>
+    <ion-button fill="clear" id="refresh" shape="round" slot="end" (click)="takePhotoAndReturnAddress()">
+      <ion-icon size="large" slot="icon-only" name="refresh-outline"></ion-icon>
     </ion-button>
-    <ion-loading trigger="open-loading" message="Saving..." duration="1000" spinner="circles"></ion-loading>
+    <ion-button fill="clear" id="open-loading" shape="round" slot="end" (click)="createBookmark()">
+      <ion-icon size="large" slot="icon-only" name="checkmark-outline"></ion-icon>
+    </ion-button>
+<!--    <ion-loading trigger="open-loading" message="Saving..." duration="1000" spinner="circles"></ion-loading>-->
   </ion-toolbar>
 </ion-header>
 
@@ -35,7 +38,17 @@
           <ion-label>Book</ion-label>
         </ion-item-divider>
         <ion-item lines="none">
-          <ion-textarea [autoGrow]="true"></ion-textarea>
+          <ion-textarea [(ngModel)]="bookTitle" [autoGrow]="true"></ion-textarea>
+        </ion-item>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        <ion-item-divider>
+          <ion-label>Author</ion-label>
+        </ion-item-divider>
+        <ion-item lines="none">
+          <ion-textarea [(ngModel)]="author" [autoGrow]="true"></ion-textarea>
         </ion-item>
       </ion-col>
     </ion-row>
@@ -45,7 +58,7 @@
           <ion-label>Page number</ion-label>
         </ion-item-divider>
         <ion-item lines="none">
-          <ion-textarea [autoGrow]="true"></ion-textarea>
+          <ion-input type="number" [(ngModel)]="pageNumber"></ion-input>
         </ion-item>
       </ion-col>
     </ion-row>
@@ -55,7 +68,7 @@
           <ion-label>Note</ion-label>
         </ion-item-divider>
         <ion-item lines="none">
-          <ion-textarea [autoGrow]="true"></ion-textarea>
+          <ion-textarea [(ngModel)]="note" [autoGrow]="true"></ion-textarea>
         </ion-item>
       </ion-col>
     </ion-row>

@@ -3,8 +3,8 @@
     <ion-buttons slot="start">
       <ion-back-button></ion-back-button>
     </ion-buttons>
-    <ion-button fill="outline" [routerLink]="['/bookmark', id]" id="open-loading" shape="round" slot="end" style="margin-right: 16px">
-      <ion-icon slot="icon-only" name="checkmark-outline"></ion-icon>
+    <ion-button fill="clear" id="open-loading" shape="round" slot="end" style="margin-right: 16px" (click)="updateBookmark()">
+      <ion-icon size="large" slot="icon-only" name="checkmark-outline"></ion-icon>
     </ion-button>
     <ion-loading trigger="open-loading" message="Saving..." duration="1000" spinner="circles"></ion-loading>
   </ion-toolbar>
@@ -22,7 +22,17 @@
           <ion-label>Book</ion-label>
         </ion-item-divider>
         <ion-item lines="none">
-          <ion-textarea auto-grow="true" value="{{ bookName }}"></ion-textarea>
+          <ion-textarea auto-grow="true" [(ngModel)]="title"></ion-textarea>
+        </ion-item>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        <ion-item-divider>
+          <ion-label>Author</ion-label>
+        </ion-item-divider>
+        <ion-item lines="none">
+          <ion-textarea auto-grow="true" [(ngModel)]="author"></ion-textarea>
         </ion-item>
       </ion-col>
     </ion-row>
@@ -32,7 +42,7 @@
           <ion-label>Page number</ion-label>
         </ion-item-divider>
         <ion-item lines="none">
-          <ion-textarea auto-grow="true" value="{{ bookmark?.pageNumber ?? '-' }}"></ion-textarea>
+          <ion-textarea auto-grow="true" [(ngModel)]="pageNumber"></ion-textarea>
         </ion-item>
       </ion-col>
     </ion-row>
@@ -42,7 +52,7 @@
           <ion-label>Note</ion-label>
         </ion-item-divider>
         <ion-item lines="none">
-          <ion-textarea auto-grow="true" value="{{ bookmark?.note ?? '-' }}"></ion-textarea>
+          <ion-textarea auto-grow="true" [(ngModel)]="note"></ion-textarea>
         </ion-item>
       </ion-col>
     </ion-row>

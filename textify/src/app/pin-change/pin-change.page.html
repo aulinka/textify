@@ -1,0 +1,26 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button default-href="/profile-and-settings"></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-grid>
+    <ion-note style="margin-left: 15px; margin-bottom: 20px;">Your last PIN was set on {{ lastPin }}</ion-note>
+    <ion-card class="user-profile-information">
+      <ion-card-header>
+        <ion-card-title>Enter new PIN</ion-card-title>
+      </ion-card-header>
+      <ion-item lines="none" style="padding-top: 10px; padding-bottom: 10px">
+        <code-input style=""
+          [isCodeHidden]="true"
+          [codeLength]="6"
+          (codeChanged)="onCodeChanged($event)"
+          (codeCompleted)="onCodeCompleted($event)">
+        </code-input>
+      </ion-item>
+    </ion-card>
+  </ion-grid>
+</ion-content>

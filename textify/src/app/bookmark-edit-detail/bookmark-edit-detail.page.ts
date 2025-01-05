@@ -10,11 +10,11 @@ import {
   IonTitle,
   IonToolbar
 } from '@ionic/angular/standalone';
-import {Bookmark, bookmarks} from "../bookmark";
-import {books} from "../book";
-import {ActivatedRoute, RouterLink} from "@angular/router";
+import {ActivatedRoute, Router, RouterLink} from "@angular/router";
 import {addIcons} from "ionicons";
-import {checkmarkOutline,closeCircleOutline, checkmarkCircleOutline} from "ionicons/icons";
+import {book, checkmarkOutline} from "ionicons/icons";
+import {SQLiteService} from "../services/SqliteService";
+import {Bookmark} from "../models/Bookmark";
 
 @Component({
   selector: 'app-bookmark-edit-detail',
@@ -23,25 +23,42 @@ import {checkmarkOutline,closeCircleOutline, checkmarkCircleOutline} from "ionic
   standalone: true,
   imports: [IonContent, IonHeader, IonTitle, IonToolbar, CommonModule, FormsModule, IonBackButton, IonButton, IonButtons, IonIcon, IonGrid, IonCol, IonItem, IonItemDivider, IonLabel, IonRow, IonInput, IonTextarea, IonLoading, RouterLink]
 })
-export class BookmarkEditDetailPage implements OnInit {
+export class BookmarkEditDetailPage {
 
-  constructor(private activatedRoute: ActivatedRoute) {
+  bookmark: Bookmark | null | undefined;
+
+  title = '';
+  author: string = '';
+  pageNumber = '';
+  note =  '';
+
+  constructor(private activatedRoute: ActivatedRoute, private database: SQLiteService, private router: Router) {
     addIcons({
-      checkmarkOutline,
-      closeCircleOutline
+      checkmarkOutline
     })
   }
 
-  protected bookmark: Bookmark | null = null;
-  protected bookName: String | null = null;
-  protected id: number | null = null;
-
-
-  ngOnInit() {
+  async ngOnInit() {
     const id = parseInt(<string>this.activatedRoute.snapshot.paramMap.get('id'))
-    this.id = id
-    this.bookmark = bookmarks[id];
-    this.bookName = books[this.bookmark.bookId];
+    this.bookmark = await this.database.getBookmarkById(id);
+    this.title = this.bookmark?.book.title ?? '';
+    this.author = this.bookmark?.book.author ?? '';
+    this.pageNumber = (this.bookmark?.book.pageNumber ?? 0).toString();
+    this.note = this.bookmark?.book.note ?? '';
+
+    console.log("Bookmark: ", JSON.stringify(this.bookmark))
   }
 
+  async updateBookmark() {
+    this.bookmark!.book.title = this.title
+    this.bookmark!.book.author = this.author
+    this.bookmark!.book.pageNumber = parseInt(this.pageNumber)
+    this.bookmark!.book.note = this.note
+
+    await this.database.updateBookmarkById(this.bookmark!)
+    console.log("Updated bookmark: ", JSON.stringify(this.bookmark))
+    await this.router.navigate(['/bookmark', this.bookmark!.id], {
+      replaceUrl: true
+    });
+  }
 }

@@ -1,0 +1,18 @@
+.user-profile-information{
+  border: var(--ion-color-tertiary) solid 1px;
+  border-radius: 15px;
+  box-shadow: 0 3px 2px -2px var(--ion-color-medium);
+  margin-bottom: 20px;
+
+  ion-header{
+    background: var(--ion-color-tertiary)
+  }
+}
+
+code-input {
+  --item-spacing: 8px;
+  --item-height: 50px;
+  --item-border-radius: 5px;
+  --item-border: 2px solid #dedede;
+  --item-border-focused: 2px solid #007aff;
+}

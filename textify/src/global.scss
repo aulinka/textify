@@ -52,6 +52,10 @@ ion-button {
   --border-width: 1px;
 }
 
+ion-card-header {
+  background: var(--ion-color-tertiary);
+}
+
 ion-item-divider {
   --color: var(--ion-color-medium);
   --padding-top: 10px;
@@ -62,14 +66,14 @@ ion-item-divider {
 
 .bookmark-info-header {
   height: 60px;
-  border: 1px solid var(--ion-color-secondary);
-  border-radius: 20px;
-  background: var(--ion-color-secondary);
-  box-shadow:0 4px 2px -2px var(--ion-color-tertiary);
+  border-radius: 10px;
+  background: var(--ion-color-tertiary);
+  //box-shadow:0 3px 1px -2px var(--ion-color-medium);
   padding: 5px;
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
+
 }
 

@@ -10,11 +10,12 @@ import {
   IonTitle,
   IonToolbar
 } from '@ionic/angular/standalone';
-import {ActivatedRoute, RouterLink} from "@angular/router";
-import {Bookmark, bookmarks} from "../bookmark";
+import {ActivatedRoute, Router, RouterLink} from "@angular/router";
 import {books} from "../book";
 import {addIcons} from "ionicons";
 import {checkmarkOutline} from "ionicons/icons";
+import {SQLiteService} from "../services/SqliteService";
+import {Bookmark} from "../models/Bookmark";
 
 @Component({
   selector: 'app-bookmark-edit-ocr',
@@ -25,26 +26,30 @@ import {checkmarkOutline} from "ionicons/icons";
 })
 export class BookmarkEditOcrPage implements OnInit {
 
-  constructor(private activatedRoute: ActivatedRoute) {
+  bookmark: Bookmark | null | undefined;
+  bookmarkContent = '';
+
+  constructor(private activatedRoute: ActivatedRoute, private database: SQLiteService, private router: Router) {
     addIcons({
       checkmarkOutline
     })
   }
 
-  bookmarkContent = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. " +
-    " Integer et sapien nec ex faucibus hendrerit. Cras semper" +
-    " tellus mollis mattis accumsan. Nulla dignissim finibus blandit. " +
-    " Aliquam ac finibus justo."
 
-  protected bookmark: Bookmark | null = null;
-  protected bookName: String | null = null;
-  protected id: number | null = null;
-
-  ngOnInit() {
+  async ngOnInit() {
     const id = parseInt(<string>this.activatedRoute.snapshot.paramMap.get('id'))
-    this.id = id
-    this.bookmark = bookmarks[id];
-    this.bookName = books[this.bookmark.bookId];
+    this.bookmark = await this.database.getBookmarkById(id);
+    this.bookmarkContent = this.bookmark?.content ?? ''
+  }
+
+  async updateBookmark() {
+    this.bookmark!.content = this.bookmarkContent
+
+    await this.database.updateBookmarkById(this.bookmark!)
+    console.log("Updated bookmark: ", JSON.stringify(this.bookmark))
+    await this.router.navigate(['/bookmark', this.bookmark!.id], {
+      replaceUrl: true
+    });
   }
 
 }

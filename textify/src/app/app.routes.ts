@@ -42,4 +42,8 @@ export const routes: Routes = [
     path: 'onboarding',
     loadComponent: () => import('./onboarding/onboarding.page').then( m => m.OnboardingPage)
   },
+  {
+    path: 'pin-change',
+    loadComponent: () => import('./pin-change/pin-change.page').then( m => m.PinChangePage)
+  },
 ];
