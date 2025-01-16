@@ -1,27 +1,23 @@
 swiper-container {
   --swiper-pagination-color: var(--ion-color-secondary);
+  height: 100%;
 }
 
 swiper-slide {
   .img {
-    width: calc(100% - 20px);
+    ion-img {
+      height: 100%;
+    }
+    width: 80%;
+    height: calc(100% - 200px);
     margin: 10px auto;
-    border-radius: 15px;
     padding: 15px;
-    border: 1px solid var(--ion-color-primary);
+    box-shadow: 0 3px 2px -2px var(--ion-color-medium);
     box-sizing: border-box;
-    box-shadow:0 4px 2px -2px var(--ion-color-tertiary);
+    border: var(--ion-color-tertiary) solid 1px;
+    border-radius: 15px;
   }
 
-  .img-last {
-    width: calc(100% - 20px);
-    margin: 10px auto;
-    border-radius: 15px;
-    padding: 15px;
-    border: 1px solid var(--ion-color-primary);
-    box-sizing: border-box;
-    box-shadow:0 4px 2px -2px var(--ion-color-tertiary);
-  }
 
   .description {
     margin-top: 10px;

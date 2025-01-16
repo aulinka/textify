@@ -30,7 +30,7 @@
       </div>
     </swiper-slide>
     <swiper-slide>
-      <div class="img-last">
+      <div class="img">
         <ion-img src="../assets/onboarding/profile_and_settings.png"></ion-img>
       </div>
       <div class="description">
@@ -38,7 +38,7 @@
         OCR functionality.
       </div>
       <ion-row class="ion-justify-content-center ion-align-items-center">
-        <ion-button shape="round" [routerLink]="['/login']" size="large">
+        <ion-button shape="round" (click)="goBack()" size="large">
           <ion-icon slot="icon-only" name="arrow-forward-outline"></ion-icon>
         </ion-button>
       </ion-row>

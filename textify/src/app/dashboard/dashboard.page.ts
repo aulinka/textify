@@ -65,6 +65,7 @@ export class DashboardPage {
         id: bm.id,
         subtitle: moment.unix(parseInt(bm.createdAt)/1000).format('DD.MM.YYYY'),
         content: bm.book.note,
+        author: bm.book.author,
         routerLink: [this.bookMarkRouter, bm.id]
       };
     }), 2);

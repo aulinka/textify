@@ -18,6 +18,12 @@
         </ion-label>
       </ion-item>
       <ion-item lines="none">
+        <ion-label>Onboarding</ion-label>
+        <ion-label slot="end">
+          <ion-icon name="arrow-forward-outline" (click)="onboarding()"></ion-icon>
+        </ion-label>
+      </ion-item>
+      <ion-item lines="none">
         <ion-label>Bookmarks count</ion-label>
         <ion-badge color="secondary">{{ bookmarkCount }}</ion-badge>
       </ion-item>

@@ -34,7 +34,10 @@ export class LoginPage implements OnInit {
     })
   }
 
-  ngOnInit(): void{
+  async ngOnInit() {
+    if (await this.getPin() == null){
+      await this.router.navigate(['/onboarding']);
+    }
   }
 
   async setPin(code: string) {
@@ -66,11 +69,15 @@ export class LoginPage implements OnInit {
         position: 'bottom',
       });
       await toast.present();
-      await this.router.navigate(['/dashboard']);
+      await this.router.navigate(['/dashboard'], {
+        replaceUrl: true
+      });
 
     } else if (await this.getPin() == code){
       console.log("PIN: ", await this.getPin())
-      await this.router.navigate(['/dashboard']);
+      await this.router.navigate(['/dashboard'], {
+        replaceUrl: true
+      });
 
     } else {
       this.codeInput.reset();

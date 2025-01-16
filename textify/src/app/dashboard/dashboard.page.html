@@ -12,14 +12,9 @@
         <ion-card [routerLink]="card.routerLink">
           <ion-card-header>
             <ion-card-title>{{ card.title }}</ion-card-title>
-            <ion-note style="margin-top: 3px">
-<!--              {{ author}}-->
-              Jozko Mak
-            </ion-note>
+            <ion-note style="margin-top: 3px">{{ card.author }}</ion-note>
             <ion-card-subtitle>
-              <ion-badge color="light" style="margin-right: 10px">
-                {{ card.subtitle}}
-              </ion-badge>
+              <ion-badge color="light" style="margin-right: 10px">{{ card.subtitle }}</ion-badge>
             </ion-card-subtitle>
           </ion-card-header>
           <ion-card-content>

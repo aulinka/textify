@@ -3,7 +3,6 @@ import {IonButton, IonContent, IonGrid, IonImg, IonNav, IonRow, NavController} f
 import {Router, RouterLink} from "@angular/router";
 import {DashboardPage} from "../dashboard/dashboard.page";
 import {NgOptimizedImage} from "@angular/common";
-import {thunderstorm} from "ionicons/icons";
 import {Preferences} from "@capacitor/preferences";
 import {SplashScreen} from "@capacitor/splash-screen";
 
@@ -32,11 +31,9 @@ export class HomePage implements OnInit{
   }
 
   async navigate(){
-    if (await this.getPin() != null){
-      await this.router.navigate(['/login']);
-    } else {
-      await this.router.navigate(['/onboarding']);
-    }
+    await this.router.navigate(['/login'], {
+      replaceUrl: true
+    });
   }
 
 

@@ -12,9 +12,10 @@ import {
   IonToolbar
 } from '@ionic/angular/standalone';
 import {IonicSlides} from "@ionic/angular";
-import {RouterLink} from "@angular/router";
+import {Router, RouterLink} from "@angular/router";
 import {addIcons} from "ionicons";
 import {arrowForwardOutline} from "ionicons/icons";
+import { Location } from "@angular/common";
 
 @Component({
   selector: 'app-onboarding',
@@ -27,10 +28,14 @@ import {arrowForwardOutline} from "ionicons/icons";
 export class OnboardingPage implements OnInit {
   swiperModules = [IonicSlides]
 
-  constructor() {
+  constructor(private location: Location) {
     addIcons({
       arrowForwardOutline
     })
+  }
+
+  goBack(): void {
+    this.location.back();
   }
 
   ngOnInit() {

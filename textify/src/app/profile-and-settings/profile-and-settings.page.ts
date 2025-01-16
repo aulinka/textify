@@ -12,7 +12,7 @@ import {
 } from '@ionic/angular/standalone';
 import {addIcons} from "ionicons";
 import {person, arrowForwardOutline} from "ionicons/icons";
-import {RouterLink} from "@angular/router";
+import {Router, RouterLink} from "@angular/router";
 import {SQLiteService} from "../services/SqliteService";
 import {Preferences} from "@capacitor/preferences";
 
@@ -28,7 +28,7 @@ export class ProfileAndSettingsPage implements OnInit {
   bookmarkCount: number | null = 0;
   preferredOcrLanguage: string | null = '';
 
-  constructor(private database: SQLiteService) {
+  constructor(private database: SQLiteService, private router: Router) {
     addIcons({
       person, arrowForwardOutline
     })
@@ -51,5 +51,9 @@ export class ProfileAndSettingsPage implements OnInit {
       key: 'ocrLanguage',
       value: this.preferredOcrLanguage
     })
+  }
+
+  onboarding(){
+    this.router.navigate(['/onboarding'])
   }
 }
